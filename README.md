@@ -1,1 +1,1 @@
-The only librarie you need to run this project is tkinter.
+The libraries needed to start the project are tkinter and pyperclip

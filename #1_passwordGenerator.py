@@ -1,5 +1,6 @@
 import random
 from tkinter import *
+import pyperclip
 
 # function to center the tkinter window in the middle of the screen
 # not mandatory, just a function for aesthetics
@@ -42,14 +43,14 @@ def fillTab():
 def genPassword():
     save = choice.get()
 
-    if(save==listeOptions[0]):
+    if(save==listOptions[0]):
         password = ""
 
         for i in range(passwordLength.get()):
             password += random.choice(optionOneChar)
         passwordVar.set(password)
 
-    elif(save==listeOptions[1]):
+    elif(save==listOptions[1]):
         password = ""
 
         # Distribute the number of characters equally
@@ -113,7 +114,7 @@ len3 = len(optionThreeChar)
 
 window = Tk()              
 window.title("Password Generator") 
-window.geometry("400x185")
+window.geometry("400x210")
 center(window)
 
 labelChar = Label(text="Choose the characters to include :")
@@ -134,6 +135,9 @@ passwordLength = Scale(window, from_=5, to=25, orient=HORIZONTAL)
 passwordLength.set(15)
 passwordLength.pack()
 
+generateButton = Button(window, text="Generate", command=genPassword)
+generateButton.pack()
+
 result = Label(text="Password :")
 result.pack()
 
@@ -141,7 +145,9 @@ passwordVar = StringVar()
 toCopy = Entry(window, textvariable=passwordVar, width=35, justify='center')
 toCopy.pack()
 
-generateButton = Button(window, text="Generate", command=genPassword)
-generateButton.pack()
+copyButton = Button(window, text="Copy password", command=lambda: pyperclip.copy(passwordVar.get()))
+copyButton.pack()
+
+
 
 window.mainloop()
