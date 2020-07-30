@@ -119,12 +119,12 @@ center(window)
 labelChar = Label(text="Choose the characters to include :")
 labelChar.pack()
 
-listeOptions = ('Lowercase and uppercase characters only', 
+listOptions = ('Lowercase and uppercase characters only', 
                 'Lowercase and uppercase characters, numbers', 
                 'Lowercase and uppercase characters,numbers and all other symbols')
 choice = StringVar()
-choice.set(listeOptions[0])
-option = OptionMenu(window, choice, *listeOptions)
+choice.set(listOptions[0])
+option = OptionMenu(window, choice, *listOptions)
 option.pack()
 
 labelLength = Label(text="Choose the length of the password :")
